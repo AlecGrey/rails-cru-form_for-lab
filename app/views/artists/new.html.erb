@@ -1,0 +1,26 @@
+<h1><%= @artist.id ? "Update Artist" : "New Artist" %></h1>
+
+<%= form_for @artist do |f| %>
+
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <br>
+
+    <%= f.label :bio %>
+    <%= f.text_area :bio %>
+    <br>
+
+    <%= f.submit %>
+
+<% end %>
+
+<% if @artist.errors %>
+    <ul>
+        <% @artist.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+    </ul>
+
+<% end %>
+
+<%= link_to "Go Back", artists_path %>

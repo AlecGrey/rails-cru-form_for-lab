@@ -1,0 +1,22 @@
+<h1><%= @genre.id ? "Update Genre" : "New Genre" %></h1>
+
+<%= form_for @genre do |f| %>
+
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <br>
+
+    <%= f.submit %>
+
+<% end %>
+
+<% if @genre.errors %>
+    <ul>
+        <% @genre.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+    </ul>
+
+<% end %>
+
+<%= link_to "Go Back", genres_path %>

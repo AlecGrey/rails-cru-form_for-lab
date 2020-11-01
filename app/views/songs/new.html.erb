@@ -1,0 +1,27 @@
+<h1><%= @song.id ? "Update Song" : "New Song" %></h1>
+
+<%= form_for @song do |f| %>
+
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <br>
+    <%= f.label :artist %>
+    <%= f.text_field :artist_id %>
+    <br>
+    <%= f.label :genre %>
+    <%= f.text_field :genre_id %>
+
+    <%= f.submit %>
+
+<% end %>
+
+<% if @song.errors %>
+    <ul>
+        <% @song.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+    </ul>
+
+<% end %>
+
+<%= link_to "Go Back", songs_path %>
